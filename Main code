@@ -1,0 +1,32 @@
+from collections import OrderedDict
+class LenOfString:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        d=OrderedDict()
+        mx=1
+        if len(s)==0:
+            return 0
+        for i in range(len(s)):
+            if s[i] not in d:
+                d[s[i]]=i
+            else:
+                if mx<len(d):
+                    mx=len(d)
+                
+                while (s[i] in d):
+                                      
+                    
+                    d.popitem(last=False)
+                   
+                #d.pop(s[i])
+                d[s[i]]=i
+        if mx<len(d):
+            mx=len(d)
+        return mx
+i=0
+while True:
+    st=input("Enter the string :")
+    p=LenOfString()
+    print(p.lengthOfLongestSubstring(st))
+    i+=1
+    if i==5:
+        break
